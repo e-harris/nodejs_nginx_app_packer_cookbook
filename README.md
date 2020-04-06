@@ -1,8 +1,16 @@
-# nodejs_nginx :penguin:
+# nodejs_nginx :panda_face:
 
 This cookbook will install Nodejs and Nginx.
 
 To use import it in your own cookbook and run it in the recipies.
+
+## Learning Outcomes
+- Git, GitHub
+- Documentation
+- Chef, Inspec, ChefSpec
+- Importing cookbooks
+- Attributes and Templates
+
 
 ## Installation
 
