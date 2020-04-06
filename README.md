@@ -1,4 +1,4 @@
-# nodejs_nginx :panda_face:
+# nodejs_nginx :squirrel:
 
 This cookbook will install Nodejs and Nginx.
 
