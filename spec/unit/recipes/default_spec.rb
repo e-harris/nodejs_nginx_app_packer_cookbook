@@ -41,6 +41,12 @@ describe 'nodejs_nginx::default' do
       expect(chef_run).to create_template '/etc/nginx/sites-available/proxy.conf'
     end
 
+    it 'Should create a symlink from proxy.conf.erb to /etc/nginx/sites-enabled' do
+      expect(chef_run).to create_link "/etc/nginx/sites-enabled/proxy.conf"
+    end
 
+    it 'should delete link from proxy.conf.erb to /etc/nginx/sites-enabled' do
+      expect(chef_run).to delete_link "/etc/nginx/sites-enabled/default"
+    end
   end
 end
