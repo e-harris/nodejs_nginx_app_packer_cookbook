@@ -4,11 +4,20 @@
 #
 # Copyright:: 2020, The Authors, All Rights Reserved.
 
+apt_update 'update_sources' do
+  action :update
+end
+
 package 'nginx' # do
-  # action [:intall]
+  # action [:install]
   # ^^ default for package command - see nodejs
 # end
-package 'nodejs'
+
+
+apt_update 'update_sources' do
+  action :update
+end
+
 
 service 'nginx' do
   action [:enable, :start]
@@ -29,3 +38,11 @@ link '/etc/nginx/sites-enabled/default' do
   action :delete
   notifies :restart, 'service[nginx]'
 end
+
+
+include_recipe 'nodejs'
+
+package 'npm'
+
+nodejs_npm 'pm2'
+nodejs_npm 'react'

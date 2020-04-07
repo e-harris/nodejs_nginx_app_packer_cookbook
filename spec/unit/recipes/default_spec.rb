@@ -16,6 +16,12 @@ describe 'nodejs_nginx::default' do
       expect { chef_run }.to_not raise_error
     end
 
+    # testing for apt-update
+    it 'runs apt get update' do
+      expect(chef_run).to update_apt_update 'update_sources'
+    end
+
+
     # Installing
       # Install Nginx
     it 'Should install Nginx' do
@@ -23,7 +29,7 @@ describe 'nodejs_nginx::default' do
     end
       # Install Nodejs
     it 'Should install Nodejs' do
-      expect(chef_run).to install_package 'nodejs'
+      expect(chef_run).to include_recipe 'nodejs'
     end
 
     # Services
@@ -48,5 +54,14 @@ describe 'nodejs_nginx::default' do
     it 'should delete link from proxy.conf.erb to /etc/nginx/sites-enabled' do
       expect(chef_run).to delete_link "/etc/nginx/sites-enabled/default"
     end
+
+    it 'should install pm2 via npm' do
+      expect(chef_run).to install_nodejs_npm('pm2')
+    end
+
+    it 'should install react via npm' do
+      expect(chef_run).to install_nodejs_npm('react')
+    end
+
   end
 end
