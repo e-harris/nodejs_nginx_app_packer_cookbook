@@ -28,7 +28,7 @@ describe 'nodejs_nginx::default' do
       expect(chef_run).to install_package 'nginx'
     end
       # Install Nodejs
-    it 'Should install Nodejs' do
+    it 'Should include recipe Nodejs' do
       expect(chef_run).to include_recipe 'nodejs'
     end
 
@@ -44,7 +44,7 @@ describe 'nodejs_nginx::default' do
 
     # if we created a new proxy.config file for Nginx
     it 'should create a proxy.conf template in /etc/nginx/sites-available' do
-      expect(chef_run).to create_template '/etc/nginx/sites-available/proxy.conf'
+      expect(chef_run).to create_template('/etc/nginx/sites-available/proxy.conf').with_variables(proxy_port: 3000)
     end
 
     it 'Should create a symlink from proxy.conf to /etc/nginx/sites-enabled' do
