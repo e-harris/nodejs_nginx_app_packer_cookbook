@@ -42,7 +42,7 @@ end
 
 include_recipe 'nodejs'
 
-package 'npm'
+# package 'npm'
 
 nodejs_npm 'pm2'
 nodejs_npm 'react'
