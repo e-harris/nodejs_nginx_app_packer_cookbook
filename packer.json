@@ -9,8 +9,8 @@
 
     "subnet_id": "subnet-0e9b6138ff1ce18f2",
 
-#    "ssh_keypair_name": "elliot-eng54",
-#    "ssh_private_key_file": "~/.ssh/elliot-eng54.pem",
+    "ssh_keypair_name": "elliot-eng54",
+    "ssh_private_key_file": "~/.ssh/elliot-eng54.pem",
 
     "associate_public_ip_address": true,
 
@@ -32,7 +32,7 @@
     },
     "instance_type": "t2.micro",
     "ssh_username": "ubuntu",
-#    "ami_name": "elliot-eng54-{{timestamp}}"
+    "ami_name": "elliot-eng54-{{timestamp}}"
   }],
   "provisioners": [
     {
